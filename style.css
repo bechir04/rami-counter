@@ -153,6 +153,71 @@ input[type="text"]:focus {
     gap: 0.5rem;
 }
 
+.history-btn {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.history-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.history-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.game-info {
+    margin-bottom: 1rem;
+}
+
+.game-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.game-info p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.game-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.losing-team, .winning-team {
+    text-align: center;
+}
+
+.losing-team h4, .winning-team h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.losing-team p, .winning-team p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
 .reset-btn {
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;

@@ -48,10 +48,27 @@ function updateScore(player, points) {
 // Show game over message
 function showGameOverMessage(losingPlayer) {
     const losingNames = playerNames[`player${losingPlayer}`];
-    const losingPlayersText = `${losingNames.name1} & ${losingNames.name2}`;
+    const winningPlayer = losingPlayer === 1 ? 2 : 1;
+    const winningNames = playerNames[`player${winningPlayer}`];
     
+    // Create game result object
+    const gameResult = {
+        date: new Date().toISOString(),
+        losingTeam: losingNames,
+        winningTeam: winningNames
+    };
+
+    // Load existing history
+    let history = JSON.parse(localStorage.getItem('ramiHistory') || '[]');
+    
+    // Add new game result to history
+    history.push(gameResult);
+    
+    // Save updated history
+    localStorage.setItem('ramiHistory', JSON.stringify(history));
+
     // Update message content
-    document.getElementById('losingPlayers').textContent = losingPlayersText;
+    document.getElementById('losingPlayers').textContent = `${losingNames.name1} & ${losingNames.name2}`;
     
     // Show game over message
     document.getElementById('gameOverMessage').style.display = 'flex';
@@ -67,6 +84,7 @@ function showGameOverMessage(losingPlayer) {
 
 // Reset the game
 function resetGame() {
+    // Reset scores
     scores.player1 = 0;
     scores.player2 = 0;
     currentPlayer = 1;
@@ -75,6 +93,17 @@ function resetGame() {
     document.querySelector('#player1 .score-display').textContent = '0';
     document.querySelector('#player2 .score-display').textContent = '0';
     document.getElementById('currentPlayer').textContent = 'Player 1';
+    
+    // Hide game over message
+    document.getElementById('gameOverMessage').style.display = 'none';
+    
+    // Re-enable all buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.disabled = false;
+    });
+    
+    // Re-enable turn button
+    document.querySelector('.turn-btn').disabled = false;
 }
 
 // Toggle between players
