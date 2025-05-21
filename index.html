@@ -9,8 +9,32 @@
 </head>
 <body>
     <div class="game-container">
+        <div class="game-over-message" id="gameOverMessage">
+            <div class="message-content">
+                <h2 id="losingPlayers"></h2>
+                <p>HAZITOU 3ASBA</p>
+                <button onclick="resetGame()" class="control-btn reset-btn">
+                    <i class="fas fa-redo"></i> Play Again
+                </button>
+            </div>
+        </div>
         <div class="game-header">
             <h1>Rami Score Counter</h1>
+            <div class="name-inputs">
+                <div class="player-names">
+                    <h3>Player 1 Names</h3>
+                    <input type="text" id="player1Name1" placeholder="Player 1 Name 1" required>
+                    <input type="text" id="player1Name2" placeholder="Player 1 Name 2" required>
+                </div>
+                <div class="player-names">
+                    <h3>Player 2 Names</h3>
+                    <input type="text" id="player2Name1" placeholder="Player 2 Name 1" required>
+                    <input type="text" id="player2Name2" placeholder="Player 2 Name 2" required>
+                </div>
+                <button onclick="saveNames()" class="control-btn save-names-btn">
+                    <i class="fas fa-save"></i> Save Names
+                </button>
+            </div>
             <div class="game-controls">
                 <button onclick="resetGame()" class="control-btn reset-btn">
                     <i class="fas fa-redo"></i> Reset Game
